@@ -73,11 +73,11 @@ public class Apuesta {
             throw new Exception("No se puede apostar menos de 1€");
         }
 
-        if (dinero > dinero_disp) {
+        if (dinero > getDinero_disp()) {
             throw new Exception("No se puede apostar mas de lo que tienes");
         }
         {
-            dinero_disp = dinero - dinero_disp;
+            setDinero_disp(dinero - getDinero_disp());
             setApostado(dinero);
         }
     }
@@ -108,7 +108,7 @@ public class Apuesta {
         if (comprobar_resultado(cantidad_goles_local, cantidad_goles_visit) == false) {
             throw new Exception("No se puede cobrar una apuesta no acertada");
         }
-        dinero_disp = dinero_disp * 10;
+        setDinero_disp(getDinero_disp() * 10);
 
     }
 }
